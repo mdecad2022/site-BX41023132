@@ -313,7 +313,25 @@ doc["aitetris"].bind("click", aitetris.do)
 <p><span data-contrast="auto"><span>登入 Onedrive , </span></span><span> </span></p>
 <p>考試網站:<a href="https://exam.cycu.org/"><span data-contrast="auto"><span>https://exam.cycu.org</span></span></a><span data-contrast="auto"><span> </span></span><span> </span></p>
 <h2>W5</h2>
+<p><span data-contrast="auto"><span>在一台遠端 server, 執行個人倉儲的動態網頁。</span></span></p>
+<ol>
+<li data-aria-level="2" data-aria-posinset="1"><span data-contrast="auto"><span>Login to<span> </span></span></span><a href="https://mail.nfu.edu.tw/"><span data-contrast="auto"><span>https://mail.nfu.edu.tw</span></span></a><span data-contrast="auto"><span> ，查看登入 stud.cycu.org 伺服器的帳號密碼, 帳號為 cad+學號, 密碼為四個字元, 包括數字與小寫英文字母</span></span><span> </span><span></span>*<span style="color: #ff0000;">帳號:cad41023132；密碼:6hxa</span>。</li>
+<li data-aria-level="2" data-aria-posinset="2"><span data-contrast="auto"><span><span style="color: #ff0000;">近端</span>給 127.0.0.1 使用<span style="color: #ff0000;">"9157"</span>；</span></span><span data-contrast="auto"><span><span style="color: #ff0000;">遠端</span>給 stud.cycu.org 使用<span style="color: #ff0000;">"8157"</span>。</span></span><span> </span></li>
+<li data-aria-level="2" data-aria-posinset="3"><span data-contrast="auto"><span>修改可攜 Python 3.10.6 start.bat, 蓋掉第三行後重新啟動, 目的希望將操作系統的命令搜尋路徑放在可攜目錄搜尋路徑之後.</span></span><span> </span></li>
+<li data-aria-level="2" data-aria-posinset="4"><span data-contrast="auto"><span>重新啟動可攜程式環境, 在其中一個命令列, <span style="color: #ff0000;">ssh  </span></span></span><span style="color: #ff0000;"><a href="mailto:cad+%E5%AD%B8%E8%99%9F@stud.cycu.org" style="color: #ff0000;"><span data-contrast="auto">cad+學號@stud.cycu.org</span></a></span><span data-contrast="auto"><span>, 表示要使用 secure shell 遠端登入到 stud.cycu.org, 這是一台 Linux 主機, 安裝 Ubuntu 22.04 Server.(若使用的網路連線協定並無 IPv6,  可將系統的 proxy 設為 140.130.17.4:3128 kmolab/kmolab)</span></span><span> </span></li>
+<li data-aria-level="2" data-aria-posinset="5"><span data-contrast="auto"><span>在 ssh 登入畫面, 以 ssh-keygen 建立 key pairs, .ssh/id_rsa 為 private key, id_rsa.pub 為 public key</span></span><span> </span></li>
+<li data-aria-level="2" data-aria-posinset="6"><span data-contrast="auto"><span>設法利用 Filezilla, 以 sftp 安全的(Secure)檔案(File)傳輸(Transmission)協定(Protocol), 與 stud.cycu.org 伺服器連結.</span></span><span> </span></li>
+<li data-aria-level="2" data-aria-posinset="7"><span data-contrast="auto"><span>利用  Filezilla sftp 取下 id_rsa.pub, 登錄至 Github 帳號下的 Setting - &gt;  SSH and GPG keys.</span></span><span> </span></li>
+<li data-aria-level="2" data-aria-posinset="8"><span data-contrast="auto"><span>對  server sftp 也可以利用 <span> </span></span></span><a href="https://portableapps.com/apps/internet/filezilla_portable"><span data-contrast="auto"><span>Filezilla portable</span></span></a><span data-contrast="auto"><span>, 以圖形介面完成. 而 ssh 也可以透過  putty.exe 執行遠端登入.</span></span><span> </span></li>
+<li data-aria-level="2" data-aria-posinset="9"><span data-contrast="auto"><span>接下來要下載 <span> </span></span></span><a href="https://nfuedu.sharepoint.com/:u:/s/cad2022/EQlQii99WuZEl2_6YB_WK28BgZ3sBCVZnmLjLFJS5kXuPQ?e=0i7OKP"><span data-contrast="auto"><span>config</span></span></a><span data-contrast="auto"><span><span> </span>設定檔案,  以 sftp 放入 stud.cycu.org 主機的 .ssh 目錄中.</span></span><span> </span></li>
+<li data-aria-level="2" data-aria-posinset="10"><span data-contrast="auto"><span>接下來要在  Ubuntu (也就是 stud.cycu.org 這台主機所安裝的操作系統) 中, 設定 .gitconfig, 總共包含三項設定: git config --global user.name "scrum-1", git config --global user.email  "scrum1@mde.tw"   以及 git config --global http.proxy http://p42.cycu.org:3128, 這三個設定必須在 ssh 登入畫面中執行, 設定完成檔案會存入帳號根目錄中的 .gitconfig</span></span><span> </span></li>
+<li data-aria-level="2" data-aria-posinset="11"><span data-contrast="auto"><span>利用  git clone --recurse-submodules <span> </span></span></span><a href="mailto:git@demo:mdecad2022/site-scrum-1.git"><span data-contrast="auto"><span>git@demo:mdecad2022/site-scrum-1.git</span></span></a><span data-contrast="auto"><span>  demo</span></span><span> </span></li>
+<li data-aria-level="2" data-aria-posinset="12"><span data-contrast="auto"><span>接著下載<span> </span></span></span><a href="https://nfuedu.sharepoint.com/:u:/s/cad2022/EXD1ElHAqFNFk6LERfjLYNgBJ4mgWYGSRsRJhq2kQyxK1w?e=rEYXQB"><span data-contrast="auto"><span>server.py</span></span></a><span data-contrast="auto"><span>, 在 Windows 編輯<span> </span></span></span><a href="https://nfuedu.sharepoint.com/:u:/s/cad2022/EXD1ElHAqFNFk6LERfjLYNgBJ4mgWYGSRsRJhq2kQyxK1w?e=rEYXQB"><span data-contrast="auto"><span>server.py</span></span></a><span data-contrast="auto"><span>, 將個人分配到的 9xxxx 埠號填入後存檔, 以 sftp 放入上列取下的倉儲根目錄.</span></span><span> </span><span></span></li>
+</ol>
+<p><span style="color: #ff0000;">若要開啟網站，先輸ssh <a href="mailto:cad41023132@stud.cycu.org；在" style="color: #ff0000;">cad41023132@stud.cycu.org</a>；再輸密碼:6hxa。</span></p>
+<p><span style="color: #ff0000;">完成後打" cd BX "，再輸" python3 server.py "。</span></p>
 <h2>W6</h2>
 <h2>W7</h2>
 <h2>W8</h2>
 <p><br/><img alt="" height="1080" src="/images/310891132_6093243500740230_5005002092992752160_n.png" width="1920"/></p>
+<h1>EXAM成績</h1>
